@@ -1,0 +1,10 @@
+Django==1.10.2
+mysql-python
+pillow
+dj-static
+pep8
+pylint
+request
+requests
+lxml
+cssselect

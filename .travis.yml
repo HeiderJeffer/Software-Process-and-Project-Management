@@ -1,0 +1,21 @@
+language: python
+python:
+  - "2.7"
+# command to install dependencies
+services:
+  - mysql
+install: 
+  - pip install -r emse-sppm/requirements.txt
+# command to run tests
+before_script:
+  - mysql -e 'CREATE DATABASE sppmdb;'
+  - echo "USE mysql;\nUPDATE user SET password=PASSWORD('password') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
+script: 
+  - python emse-sppm/manage.py makemigrations --no-input
+  - python emse-sppm/manage.py migrate --no-input
+  - python emse-sppm/manage.py test
+  - python emse-sppm/recursive_pylint.py
+env:
+  - DJANGO_VERSION=1.10.2
+notifications:
+slack: emse-team:ZxDfEfIcUAt9LZRR948USwwG

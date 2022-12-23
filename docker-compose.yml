@@ -1,0 +1,37 @@
+version: '2'
+services: 
+  data:
+    container_name: dockyard-data
+    build: "docker/persistence"
+  db:
+    container_name: dockyard-db
+    image: mysql
+    restart: always
+    volumes:
+      - ./docker/persistence/:/docker-entrypoint-initdb.d
+    volumes_from:
+      - data
+    environment:
+     MYSQL_ROOT_PASSWORD: password
+     MYSQL_DATABASE: sppmdb
+     MYSQL_USER: root_root
+     MYSQL_PASSWORD: password
+  web: 
+    container_name: dockyard-web
+    build: "."
+    depends_on: 
+      - db
+    ports: 
+      - "8000:8000"
+    volumes: 
+      - ".:/code"
+    links:
+      - db
+  nginx:
+    container_name: dockyard-nginx
+    restart: always
+    build: docker/nginx
+    ports:
+      - "80:80"
+    links:
+      - web:web
