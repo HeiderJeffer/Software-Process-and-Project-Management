@@ -13,9 +13,10 @@
 * Aida Zahid
 * Alexander Nedelchev
 * Bojan Marjanovic
+* Heider Jeffer
 * Masha Reko
 * Roberto Moreu Rubio
-* Heider Jeffer
+
 
 #### Travis Build Status
 [![Build Status](https://travis-ci.com/marjanovic93/emse-sppm.svg?token=KpTSXh3dVRyyEwmqZDhn&branch=master)](https://travis-ci.com/marjanovic93/emse-sppm)
