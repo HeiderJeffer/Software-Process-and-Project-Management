@@ -8,3 +8,5 @@ request
 requests
 lxml
 cssselect
+
+pip install pymysql mysql-python pillow dj-static pep8 pylint request requests lxm cssselect
