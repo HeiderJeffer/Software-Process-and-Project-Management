@@ -1,5 +1,5 @@
 
-# Project for Software Process and Project Management
+# Software Process and Project Management
 * Django Python application
 
 ### Requirements:
